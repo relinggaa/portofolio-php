@@ -36,11 +36,11 @@ require "tampi_data.php";
                     </div>
                 </div>
             </div>
-            <form action="hapus.php" method=get>
+            <form action="" method="get">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">No</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Email</th>
                             <th scope="col">Pesan</th>
@@ -54,7 +54,6 @@ require "tampi_data.php";
                         <?php $id=$row["id"] ?>
                         <?php $number++ ?>
                         <tr>
-                            <th><?= $id ?></th>
                             <th><?= $number?></th>
                             <th><?= $row["nama_lengkap"]?></th>
                             <th><?= $row["email"] ?></th>
@@ -62,7 +61,7 @@ require "tampi_data.php";
                             <th>
                                 <!-- Button trigger modal -->
                                 <a type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                                    data-bs-target="#exampleModal<?= $id ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-trash3" viewBox="0 0 16 16">
                                         <path
@@ -71,7 +70,7 @@ require "tampi_data.php";
                                 </a>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                <div class="modal fade" id="exampleModal<?= $id ?>" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -84,8 +83,8 @@ require "tampi_data.php";
                                                 Apakah Anda Yakin Untuk Menghapus Data?
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="hapus.php?<?=$id?>" type="button" class="btn btn-danger "
-                                                    id=confirmDeleteBtn data-bs-dismiss="modal">Ya</a>
+                                                <a href="hapus.php?id=<?= $id ?>" type="button" class="btn btn-danger "
+                                                    id=confirmDeleteBtn>Ya</a>
                                                 <button type="button" class="btn btn-primary"
                                                     data-bs-dismiss="modal">Tidak</button>
 
