@@ -21,7 +21,8 @@ function tampilData(){
     while($result->fetch_assoc()){
         return $result;
     }
-    } 
+ 
+} 
   
 
 
