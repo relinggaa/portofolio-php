@@ -11,6 +11,22 @@ if ($koneksi->connect_errno){
 
 
 $pesan="";
+
+
+function tampilData(){
+    global $result;
+    global $koneksi;
+    $sql = "SELECT  * FROM contact";
+    $result=$koneksi->query($sql);
+    while($result->fetch_assoc()){
+        return $result;
+    }
+    } 
+  
+
+
+
+
 function simpanData($data){
     global $koneksi;
     global $pesan;

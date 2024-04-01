@@ -1,6 +1,6 @@
 <?php 
-require "tampi_data.php";
-
+require "database.php";
+$tampil=tampilData();
 ?>
 
 <!doctype html>
@@ -48,11 +48,9 @@ require "tampi_data.php";
                     </thead>
                     <tbody>
                         <?php  $number=0; ?>
-                        <?php if ($result->num_rows > 0) { ?>
-                        <?php  while($row = $result->fetch_assoc())
-                        {?>
-                        <?php $id=$row["id"] ?>
-                        <?php $number++ ?>
+
+                        <?php foreach($tampil as $row):?>
+                        <?php $id=$row["id"] ?> <?php $number++ ?>
                         <tr>
                             <th><?= $number?></th>
                             <th><?= $row["nama_lengkap"]?></th>
@@ -98,8 +96,8 @@ require "tampi_data.php";
 
 
                     </tbody>
-                    <?php } ?>
-                    <?php } ?>
+                    <?php endforeach ?>
+
                 </table>
             </form>
         </div>
